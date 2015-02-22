@@ -9,4 +9,8 @@ $(function () {
             }))
             .submit();
     });
+
+    $('.as-button').change(function () {
+        $(this).closest('form').submit();
+    });
 });
