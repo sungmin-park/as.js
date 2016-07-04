@@ -18,6 +18,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "*"
+    "jquery": "*",
+    "blockUI": "*"
+  },
+  "devDependencies": {
+    "qunit": "^2.0.0"
   }
 }

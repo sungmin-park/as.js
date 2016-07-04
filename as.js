@@ -1,16 +1,23 @@
-$(function () {
-    $('.as-form').click(function (e) {
-        e.preventDefault();
-        $('<form>')
-            .appendTo('body')
-            .attr({method: 'POST', 'action': this.href})
-            .append($.map($(this).data(), function (value, name) {
-                return $('<input type="hidden">').attr('name', name).val(value)[0];
-            }))
-            .submit();
-    });
+(function ($) {
+    $.fn.asBack = function () {
+        return this.click(function (e) {
+            e.preventDefault();
+            history.back();
+            $.blockUI({
+                css: {
+                    border: 'none',
+                    padding: '15px',
+                    backgroundColor: '#000',
+                    '-webkit-border-radius': '10px',
+                    '-moz-border-radius': '10px',
+                    opacity: .5,
+                    color: '#fff'
+                }
+            });
+        });
+    };
 
-    $('.as-button').change(function () {
-        $(this).closest('form').submit();
+    $(function () {
+        $('.-as-back').asBack();
     });
-});
+})(jQuery);
