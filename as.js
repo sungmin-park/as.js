@@ -30,6 +30,7 @@
             }
             $('<form>')
                 .appendTo($('body'))
+                .css({opacity: 0, width: 1, height: 1})
                 .attr({action: action, method: method})
                 .append(_.map(data, function (value, name) {
                     return $('<input>').attr('name', name).val(value);
