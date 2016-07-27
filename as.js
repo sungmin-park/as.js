@@ -17,7 +17,29 @@
         });
     };
 
+    $.fn.asForm = function () {
+        return this.click(function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var action = this.href;
+            var data = $.extend({}, $this.data());
+            var method = 'GET';
+            if (data.method) {
+                method = data.method;
+                delete data.method;
+            }
+            $('<form>')
+                .appendTo($('body'))
+                .attr({action: action, method: method})
+                .append(_.map(data, function (value, name) {
+                    return $('<input>').attr('name', name).val(value);
+                }))
+                .submit();
+        });
+    };
+
     $(function () {
         $('.-as-back').asBack();
+        $('.-as-form').asForm();
     });
 })(jQuery);

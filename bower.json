@@ -19,7 +19,8 @@
   ],
   "dependencies": {
     "jquery": "*",
-    "blockUI": "*"
+    "blockUI": "*",
+    "lodash": "^4.14.0"
   },
   "devDependencies": {
     "qunit": "^2.0.0"
